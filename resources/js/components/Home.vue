@@ -1,7 +1,9 @@
 <template>
     <div class="videos">
         <div v-for="video in videos" class="video-item">
-            
+            <RouterLink :to="{name: 'Video', params: {id: video.id}}">
+                {{ video.name }}
+            </RouterLink>
         </div>
     </div>
 </template>

@@ -15,6 +15,9 @@ export default {
             videos: [],
         }
     },
+    created() {
+        this.loadVideos()
+    },
     methods: {
         loadVideos() {
             axios.get(`/api/videos`)

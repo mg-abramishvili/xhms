@@ -9,16 +9,16 @@ class VideoController extends Controller
 {
     public function index()
     {
-        return Video::all();
+        return Video::with('categories', 'names')->get();
     }
 
     public function video($id)
     {
-        return Video::find($id);
+        return Video::with('categories', 'names')->find($id);
     }
 
     public function store(Request $request)
     {
-        
+
     }
 }

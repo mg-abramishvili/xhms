@@ -9,11 +9,11 @@ class NameController extends Controller
 {
     public function index()
     {
-        return Name::withCount('videos')->get();
+        return Name::withCount('videos')->orderBy('name')->get();
     }
 
     public function name($id)
     {
-        return Name::withCount('videos')->with('videos')->find($id);
+        return Name::withCount('videos')->with('videos.categories')->find($id);
     }
 }

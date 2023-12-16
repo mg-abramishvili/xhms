@@ -9,11 +9,11 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return Category::orderBy('name')->get();
+        return Category::withCount('videos')->orderBy('name')->get();
     }
 
     public function category($slug)
     {
-        return Category::where('slug', $slug)->withCount('videos')->with('videos')->first();
+        return Category::where('slug', $slug)->withCount('videos')->with('videos.names')->first();
     }
 }
